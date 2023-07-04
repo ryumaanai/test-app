@@ -12,3 +12,9 @@
 </div>
 
 <%= link_to "New post", new_post_path %>
+<% if user_signed_in? %>
+  <%= link_to "User sing_out", destroy_user_session_path, data: {turbo_method: :delete} %>
+<% else %>
+  <%= link_to "New user", new_user_registration_path %>
+  <%= link_to "User sing_in", new_user_session_path %>
+<% end %>
